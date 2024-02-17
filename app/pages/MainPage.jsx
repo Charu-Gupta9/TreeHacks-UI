@@ -6,10 +6,7 @@
 import Link from "next/link"
 import { Input } from "@/app/components/ui/input"
 import { Button } from "@/app/components/ui/button"
-import { navbar } from "@/app/components/ui/navbar"
-import { WorldMap } from "@/app/components/ui/worldmap"
-
-
+import logo from './app/pages/download_img.jpeg';
 
 const MainPage = () => {
   return (
@@ -64,13 +61,34 @@ const MainPage = () => {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container flex flex-col gap-4 px-4 md:px-6 text-center">
-            <div className="mx-auto w-full max-w-sm space-y-4">
-             {/* <WorldMap /> */}
+        <div className="bg-gray-50/90 w-full py-12 md:py-16">
+      <div className="container px-4 md:px-6">
+        <div className="grid items-center gap-6 lg:grid-cols-[1fr_600px]">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Protecting Our Planet</h1>
+              <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
+                Explore the impact of human actions on our most important ecological places.
+              </p>
             </div>
+            <Link
+              className="inline-flex items-center space-x-2 text-sm font-medium underline transition-transform translate-y-0.5 duration-150 hover:text-gray-950 dark:hover:text-gray-50"
+              href="#"
+            >
+              Explore the Map..
+              
+            </Link>
           </div>
-        </section>
+          <img
+            alt="Hero"
+            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+            height="300"
+            src={logo}
+            width="600"
+          />
+        </div>
+      </div>
+    </div>
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container flex flex-col gap-4 px-4 md:px-6 text-center">
             <div className="space-y-2">
