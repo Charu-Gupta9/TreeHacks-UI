@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Terra API Demo",
+  title: "TreeHacks Sustainabililty App",
   description: "Use this as a skeleton for your project!",
 };
 
