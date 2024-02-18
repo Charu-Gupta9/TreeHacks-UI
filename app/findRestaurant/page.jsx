@@ -55,21 +55,22 @@ function findRestaurant(){
           {
             data.names.map(items => (
               <div className="flex flex-col gap-1.5">
-            <h3 className="font-bold">{items}</h3>
+            <h3 className="font-bold">{items.name}</h3>
             <p className="text-sm">
-              Offers a fusion of global flavors using sustainable and ethically sourced ingredients.
+              {items.direction}
             </p>
           </div>
             ))
           }
         </div>
-        <div className="w-full h-[500px] rounded-lg overflow-hidden relative">
         <div>
+        </div>
+        <div className="flex">
           <img src={data.static_map} />
         </div>
         </div>
-      </div>
-    </div>)    
+      
+    </div>    
        
         </>
       );
