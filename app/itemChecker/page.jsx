@@ -6,12 +6,23 @@
 import { Button } from "../components/ui/button"
 import { Label } from "../components/ui/label"
 import { Input } from "../components/ui/input"
-import { Textarea } from "../components/ui/textarea"
-import { GraphCarbon } from "../../components/graph-carbon"
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import Link from "next/link"
+import { Card, CardHeader, CardTitle, CardDescription } from "../../components/ui/card"
+
 
 function itemchecker() {
-  return (
+  const [data, setData] = useState(null);
+  function toggleButtonState () {
+    axios.get("https://treehacks-api.onrender.com/label_info?image_path=https://ibb.co/YQ88PjB").then(res =>{
+      console.log(res);
+      setData(res.data);
+    });
+console.log(data);
+    }
+;
+  return (   
     (
        <><header className="px-4 lg:px-6 h-14 flex items-center">
         <Link className="flex items-center justify-center" href="#">
@@ -66,33 +77,142 @@ function itemchecker() {
           </Label>
           <Input id="manual" placeholder="Enter barcode" type="text" />
           <div>Type the barcode number to look up a product</div>
+          <button onClick={() => toggleButtonState()}>Check</button>
         </div>
       </div>
       <div className="grid gap-4">
         <div className="grid gap-2">
-          <Label className="text-sm">Product name</Label>
-          <div>Acme Circles T-Shirt</div>
-        </div>
-        <div className="grid gap-2">
-          <Label className="text-sm">Description</Label>
-          <div>60% combed ringspun cotton/40% polyester jersey tee.</div>
-        </div>
-        <div className="grid gap-2">
-          <Label className="text-sm">Environmental impact</Label>
-          <div>
-            This product is made with sustainable materials and eco-friendly dyes, reducing its carbon footprint.
-          </div>
-        </div>
-        <div className="grid gap-2">
-          <Label className="text-sm">Certifications</Label>
-          <div>Organic Cotton, Fair Trade</div>
-        </div>
-        <div className="grid gap-2">
-          <Label className="text-sm">Materials</Label>
-          <div>Recycled polyester, organic cotton</div>
+          <Label className="text-sm">Product Description</Label>
+          
+         {data ? <div>{
+         data[0] === "answer" ? data[1] : data[0] }</div> : null}
         </div>
       </div>
-    </div>)</>)
+    </div>
+        
+    {data ? 
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-1">
+        <section className="py-8">
+        </section>
+        <section className="py-8">
+          <div className="container grid items-start gap-4 px-4 md:gap-10 lg:px-6 lg:grid-cols-3">
+            <div className="flex flex-col gap-2 min-vh-[400px]:items-start">
+              <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl">Recommended Brands</h2>
+              <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed dark:text-gray-400">
+                Here are some clothing brands we recommend based on your uploaded tags.
+              </p>
+            </div>
+            <div className="space-y-4 lg:col-start-2 lg:col-span-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-4">
+                  <img
+                    alt="Brand logo"
+                    className="rounded-lg object-cover aspect-square border border-gray-200 border-gray-200 shadow-sm dark:border-gray-800"
+                    height="100"
+                    src="/download.jpeg"
+                    width="100"
+                  />
+                  <div className="space-y-1">
+                    <h3 className="font-bold">Urban Threads</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Urban fashion for the modern city dweller. #streetstyle
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <img
+                    alt="Brand logo"
+                    className="rounded-lg object-cover aspect-square border border-gray-200 border-gray-200 shadow-sm dark:border-gray-800"
+                    height="100"
+                    src="/Sns.png"
+                    width="100"
+                  />
+                  <div className="space-y-1">
+                    <h3 className="font-bold">Sole & Style</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Where sneakers meet fashion. #kicksandfits
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <img
+                    alt="Brand logo"
+                    className="rounded-lg object-cover aspect-square border border-gray-200 border-gray-200 shadow-sm dark:border-gray-800"
+                    height="100"
+                    src="/Patagonia.png"
+                    width="100"
+                  />
+                  <div className="space-y-1">
+                    <h3 className="font-bold">Patagonia</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Elevate your style with luxury fashion. #chicandclassy
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <img
+                    alt="Brand logo"
+                    className="rounded-lg object-cover aspect-square border border-gray-200 border-gray-200 shadow-sm dark:border-gray-800"
+                    height="100"
+                    src="/cotopaxi.png"
+                    width="100"
+                  />
+                  <div className="space-y-1">
+                    <h3 className="font-bold">Cotopaxi</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+We create innovative outdoor products and experiences that fund sustainable poverty relief #Sustainability
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-6 md:py-12 lg:py-16">
+      <div className="container px-4 md:px-6">
+        <div className="space-y-4 text-center">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Your Carbon Credits</h2>
+          </div>
+          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            Track your impact and earn rewards by supporting sustainable brands.
+          </p>
+        </div>
+      </div>
+      <div className="container grid items-start justify-center gap-6 pt-6 md:pt-12 lg:gap-10 pb-6 md:pb-12">
+        <div className="flex items-center justify-center gap-4">
+          <Card className="w-full max-w-sm p-8 flex items-center justify-center flex-col">
+            <div className="text-3xl font-bold">100</div>
+            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Carbon Credits</div>
+          </Card>
+        </div>
+        <div className="flex gap-4">
+          <Card className="w-full max-w-sm p-8 flex items-center justify-center flex-col">
+            <div className="space-y-2 text-center">
+              <h3 className="text-lg font-bold">What are carbon credits?</h3>
+              <p className="text-sm text-gray-500/70 dark:text-gray-400/70">
+                Carbon credits are a way to offset your carbon footprint by supporting projects that reduce greenhouse
+                gas emissions.
+              </p>
+            </div>
+          </Card>
+        </div>
+        <div className="flex items-center justify-center gap-4">
+          <Card className="w-full max-w-sm p-8 flex items-center justify-center flex-col">
+            <div className="space-y-2 text-center">
+              <h3 className="text-lg font-bold">How can I earn more credits?</h3>
+              <p className="text-sm text-gray-500/70 dark:text-gray-400/70">
+                You can earn more carbon credits by switching to our recommended sustainable brands. Every purchase or
+                action that reduces carbon emissions will earn you more credits. Rating on your item needs to be more than 7 to earn 10 credits.
+              </p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+      </main>
+    </div> : null}</>)
   );
 }
 
