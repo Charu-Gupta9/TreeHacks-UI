@@ -6,25 +6,42 @@
 import Link from "next/link"
 import { Input } from "@/app/components/ui/input"
 import { Button } from "@/app/components/ui/button"
-import logo from './app/pages/download_img.jpeg';
+import { Dashboard } from "../../components/dashboard"
+import { GraphCarbon } from "@/components/graph-carbon"
+
+
+var markers = [{
+  "content":"Amazon","lat":-8.36,"lng":-68.69,"link":"https://www.worldwildlife.org/places/amazon"},
+  {"content":"Yangtze","lat":28.0,"lng":115.0,"link":"https://www.worldwildlife.org/places/yangtze"},
+  {"content":"Southern Chile","lat":-44.53,"lng":-72.82,"link":"https://www.worldwildlife.org/places/southern-chile"},
+  {"content":"Madagascar","lat":-21.37,"lng":46.1,"link":"https://www.worldwildlife.org/places/madagascar"},
+  {"content":"Arctic","lat":90.0,"lng":0.0,"link":"https://www.worldwildlife.org/places/arctic"},
+  {"content":"Northern Great Plains","lat":44.06,"lng":-103.29,"link":"https://www.worldwildlife.org/places/northern-great-plains"},
+  {"content":"Chihuahuan Desert","lat":28.23,"lng":-104.55,"link":"https://www.worldwildlife.org/places/chihuahuan-desert"},
+  {"content":"The Galápagos","lat":-1.19,"lng":-91.19,"link":"https://www.worldwildlife.org/places/the-galapagos"},
+  {"content":"Amur-Heilong","lat":48.81,"lng":128.8,"link":"https://www.worldwildlife.org/places/amur-heilong"},
+  {"content":"Borneo and Sumatra","lat":-1.78,"lng":107.6,"link":"https://www.worldwildlife.org/places/borneo-and-sumatra"},
+  {"content":"Mesoamerican Reef","lat":17.73,"lng":-85.61,"link":"https://www.worldwildlife.org/places/mesoamerican-reef"},
+  {"content":"Namibia","lat":-22.07,"lng":14.59,"link":"https://www.worldwildlife.org/places/namibia"},
+  {"content":"Eastern Himalayas","lat":27.18,"lng":90.26,"link":"https://www.worldwildlife.org/places/eastern-himalayas"},
+  {"content":"Coral Triangle","lat":-2.42,"lng":134.87,"link":"https://www.worldwildlife.org/places/coral-triangle"},
+  {"content":"Congo Basin","lat":-1.63,"lng":18.24,"link":"https://www.worldwildlife.org/places/congo-basin"},
+  {"content":"Coastal East Africa","lat":-12.04,"lng":39.68,"link":"https://www.worldwildlife.org/places/coastal-east-africa"},
+  {"content":"Greater Mekong","lat":16.17,"lng":105.25,"link":"https://www.worldwildlife.org/places/greater-mekong"},
+  {"content":"Pantanal","lat":-17.7166667,"lng":-57.3833333,"link":"https://www.worldwildlife.org/places/pantanal"},
+  {"content":"Atlantic Forest","lat":0.0,"lng":0.0,"link":"https://www.worldwildlife.org/places/atlantic-forest"}];
+				
 
 const MainPage = () => {
   return (
     (<div className="flex flex-col min-h-[100dvh]">
-      <div className="items-center">
+      <div className="flex flex-col items-center">
       <main className="flex-1 items-center">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 items-center">
-          <div
-            className="container flex flex-col items-center gap-4 px-4 md:px-6 text-center">
-            <div className="space-y-2 text-center">
-              <h1
-                className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none">
-                Carbon Footprint Tracker
-              </h1>
-              <p
-                className="max-w-[800px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Track your impact on the planet. Understand. Reduce. Improve.
-              </p>
+      <section className="w-full py-20 md:py-6">
+        <div className="container flex flex-col gap-4 px-4 md:px-6 text-center">
+            <div className=" flex flex-coltext-center">
+              <Dashboard />
+              <GraphCarbon />
             </div>
           </div>
         </section>
@@ -78,15 +95,14 @@ const MainPage = () => {
               Explore the Map..
               
             </Link>
-          </div>
+          </div>        
           <img
-            alt="Hero"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-            height="300"
-            src={logo}
-            width="600"
+            height="100%"
+            src='mapImage.jpg'
+            width="100%"
           />
-        </div>
+            </div>
       </div>
     </div>
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -94,11 +110,11 @@ const MainPage = () => {
             <div className="space-y-2">
               <h2
                 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none">
-                Your Carbon Footprint
+                Your Carbon Footprint Calculator
               </h2>
               <p
                 className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Based on your input, your estimated carbon footprint is 12.5 metric tons of CO2 per year.
+                A human's estimated carbon footprint is 16 metric tons of CO2 per year.
               </p>
             </div>
             <div className="mx-auto w-full max-w-sm space-y-2">
@@ -137,7 +153,7 @@ const MainPage = () => {
             <div className="mx-auto w-full max-w-sm space-y-4">
               <ol className="list-decimal list-inside space-y-2">
                 <li>Use public transportation or carpooling</li>
-                <li>Switch to energy-efficient appliances and light bulbs</li>
+                <li>Use sustainable clothes and organic food</li>
                 <li>Reduce, reuse, and recycle</li>
                 <li>Conserve water</li>
                 <li>Support renewable energy</li>
@@ -165,13 +181,26 @@ const MainPage = () => {
           <div className="container flex flex-col gap-4 px-4 md:px-6 text-center">
             <div className="space-y-2">
               <h2
-                className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none">Testimonials</h2>
+                className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none">Our Motivation</h2>
               <p
                 className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                "The Carbon Footprint Tracker has made me more aware of my daily activities and their impact on the
-                environment. I now make conscious choices to reduce my carbon footprint, such as walking or biking
-                instead of driving, using energy-efficient appliances, and recycling. It's easy to use and provides
-                practical tips for a greener lifestyle." - Sarah
+                "I am blocked between knowledge and action. I know the importance of sustainability but I don't know what all I could do in my daily life to contribute towards it" - Maya, Florida
+              </p>
+              <p
+                className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                “For a lot of people, it’s the hurdle of ‘it’s not really me, I can’t make a difference” - Erin
+              </p>
+              <p
+                className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                “Show them the incentive to be sustainable” - Connie
+              </p>
+              <p
+                className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                “Especially if it showed me how much impact it would have” - Jacob, Canada
+              </p>
+              <p
+                className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                “when you see carbon footprint used in marketing its always very condemning. It’s nice to see something focused on action” - Jacob, Canada
               </p>
             </div>
           </div>
