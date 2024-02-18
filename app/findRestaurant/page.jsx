@@ -43,11 +43,11 @@ function findRestaurant(){
           </Link>
         </nav>
       </header>  
-      <div className="grid md:grid-cols-2 gap-6 items-start w-full">
+      <div className="grid gap-6 items-start w-full lg:px-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold">Sustainable Restaurants</h1>
         <p className="text-gray-500 dark:text-gray-400">
-          A list of sustainable restaurants along with their names, addresses, and a brief description.
+          A list of sustainable restaurants along with their names and addresses.
         </p>
       </div>
       <div className="flex flex-col md:gap-4">
@@ -65,7 +65,7 @@ function findRestaurant(){
         </div>
         <div>
         </div>
-        <div className="flex">
+        <div className="flex flex-col items-center gap-10">
           <img src={data.static_map} />
         </div>
         </div>

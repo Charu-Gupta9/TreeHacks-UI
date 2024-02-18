@@ -47,11 +47,11 @@ function itemchecker() {
           </Link>
         </nav>
       </header>
-      (<header className="px-4 py-6 md:px-6">
+      <header className="px-4 py-6 md:px-6">
         <h1 className="text-2xl font-bold">Product Information</h1>
       </header>
         <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto px-4">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 pr-12">
         <div className="grid gap-2">
           <Label className="text-sm" htmlFor="upload">
             Upload an image

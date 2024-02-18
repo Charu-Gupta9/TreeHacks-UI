@@ -57,10 +57,10 @@ function TrackTransport(){
                             className="flex items-center justify-between py-6 md:py-8 lg:py-12">
                         </header>
                         <main>
-                            <section className="w-full">
+                            <section className="w-full pb-20">
                                 <div
                                     className="container flex flex-col items-center justify-center space-y-4 px-4 text-center md:px-6">
-                                    <div className="space-y-2">
+                                    <div className="space-y-2 pb-8">
                                         <h1
                                             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                                             Sustainable Transportation
