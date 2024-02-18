@@ -8,7 +8,7 @@ import { Input } from "../components/ui/input.jsx"
 import { Button } from "../components/ui/button"
 import { Dashboard } from "../../components/dashboard"
 import { GraphCarbon } from "../../components/graph-carbon"
-
+import { Card, CardHeader, CardTitle, CardDescription } from "../../components/ui/card"
 
 var markers = [{
   "content":"Amazon","lat":-8.36,"lng":-68.69,"link":"https://www.worldwildlife.org/places/amazon"},
@@ -115,57 +115,55 @@ const MainPage = () => {
             <div className="space-y-2">
               <h2
                 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none">
-                Your Carbon Footprint Calculator
+                Calculate Your Carbon Footprint
               </h2>
-              <p
-                className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                A human's estimated carbon footprint is 16 metric tons of CO2 per year.
-              </p>
             </div>
             <div className="mx-auto max-w-sm space-y-2">
             <iframe width="500" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" src="https://calculator.carbonfootprint.com/calculator.aspx?b=FFFFFF"></iframe>
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 border-t">
-          <div className="container flex flex-col gap-4 px-4 md:px-6 text-center">
-            <div className="space-y-2">
-              <h2
-                className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none">
-                How to Reduce your Carbon Footprint
-              </h2>
-              <p
-                className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Here are some tips to help you reduce your carbon footprint:
-              </p>
-            </div>
-            <div className="mx-auto w-full max-w-sm space-y-4">
-              <ol className="list-decimal list-inside space-y-2">
-                <li>Use public transportation or carpooling</li>
-                <li>Use sustainable clothes and organic food</li>
-                <li>Reduce, reuse, and recycle</li>
-                <li>Conserve water</li>
-                <li>Support renewable energy</li>
-              </ol>
-            </div>
-          </div>
-        </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container flex flex-col gap-4 px-4 md:px-6 text-center">
-            <div className="space-y-2">
-              <h2
-                className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none">
-                Benefits of Reducing your Carbon Footprint
-              </h2>
-              <p
-                className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                By reducing your carbon footprint, you can help protect the environment, improve air quality, and
-                conserve natural resources. You can also save money on energy bills and contribute to a more sustainable
-                and resilient future.
-              </p>
-            </div>
+      <div
+        className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
+        <div className="space-y-3">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            How To Reduce Your Carbon Footprint
+          </h2>
+          <p
+            className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            Personalized recommendations for you.
+          </p>
+        </div>
+        <div
+          className="grid w-full grid-cols-1 items-stretch justify-center gap-4 md:grid-cols-3 md:gap-8">
+          <div className="mx-auto flex w-full items-center justify-center p-6 sm:p-8">
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle className="text-xl">Go Veg</CardTitle>
+                <CardDescription>Try out a meatless meal 1x per week</CardDescription>
+              </CardHeader>
+            </Card>
           </div>
-        </section>
+          <div className="mx-auto flex w-full items-center justify-center p-6 sm:p-8">
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle className="text-xl">Two Wheels</CardTitle>
+                <CardDescription>Bike or take public transit instead of a car 2x per week</CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+          <div className="mx-auto flex w-full items-center justify-center p-6 sm:p-8">
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle className="text-xl">Quality Over Quantity</CardTitle>
+                <CardDescription>Try to reduce your clothing consumption by 1 purchase per month</CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container flex flex-col gap-4 px-4 md:px-6 text-center">
             <div className="space-y-2">
@@ -173,7 +171,7 @@ const MainPage = () => {
                 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none">Our Motivation</h2>
               <p
                 className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                "I am blocked between knowledge and action. I know the importance of sustainability but I don't know what all I could do in my daily life to contribute towards it" - Maya, Florida
+                "I know the importance of sustainability but I don't know what all I could do in my daily life to contribute towards it" - Maya
               </p>
               <p
                 className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
