@@ -4,10 +4,10 @@
  */
 "use client"
 import Link from "next/link"
-import { Input } from "@/app/components/ui/input"
-import { Button } from "@/app/components/ui/button"
+import { Input } from "../components/ui/input.jsx"
+import { Button } from "../components/ui/button"
 import { Dashboard } from "../../components/dashboard"
-import { GraphCarbon } from "@/components/graph-carbon"
+import { GraphCarbon } from "../../components/graph-carbon"
 
 
 var markers = [{
