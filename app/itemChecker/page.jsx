@@ -47,57 +47,52 @@ function itemchecker() {
           </Link>
         </nav>
       </header>
-    
-      <div className="mx-auto max-w-3xl space-y-6">
-          <div className="space-y-2 text-center">
-            <h1 className="text-3xl font-bold">Scan or upload barcode</h1>
-            <p className="text-gray-500 dark:text-gray-400">
-              Scan the barcode on a product to view sustainability information
-            </p>
+      (<header className="px-4 py-6 md:px-6">
+        <h1 className="text-2xl font-bold">Product Information</h1>
+      </header>
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto px-4">
+      <div className="flex flex-col gap-4">
+        <div className="grid gap-2">
+          <Label className="text-sm" htmlFor="upload">
+            Upload an image
+          </Label>
+          <Input accept="image/*" id="upload" type="file" />
+          <div>Take a photo of a product's barcode to scan it</div>
+        </div>
+        <div className="grid gap-2">
+          OR
+          <Label className="text-sm" htmlFor="manual">
+            Enter barcode manually
+          </Label>
+          <Input id="manual" placeholder="Enter barcode" type="text" />
+          <div>Type the barcode number to look up a product</div>
+        </div>
+      </div>
+      <div className="grid gap-4">
+        <div className="grid gap-2">
+          <Label className="text-sm">Product name</Label>
+          <div>Acme Circles T-Shirt</div>
+        </div>
+        <div className="grid gap-2">
+          <Label className="text-sm">Description</Label>
+          <div>60% combed ringspun cotton/40% polyester jersey tee.</div>
+        </div>
+        <div className="grid gap-2">
+          <Label className="text-sm">Environmental impact</Label>
+          <div>
+            This product is made with sustainable materials and eco-friendly dyes, reducing its carbon footprint.
           </div>
-          <div className="flex justify-center">
-            <Button>Scan Barcode</Button>
-            <input accept="image/*" className="sr-only" id="upload" type="file" />
-            <label
-              className="cursor-pointer inline-block w-[200px] sm:w-[250px] [&:disabled]bg-gray-300 dark:[&:disabled]bg-gray-700 height-12 flex items-center justify-center rounded-lg text-sm transition-colors border border-gray-200 dark:border-gray-800 dark:disabled:[&:border-gray-700] disabled:opacity-70 disabled:cursor-not-allowed dark:border-gray-800"
-              htmlFor="upload">
-              Upload Image
-            </label>
-          </div>
-          <div className="grid gap-4">
-            <div className="grid gap-2">
-              <Label className="text-sm" htmlFor="name">
-                Product Name
-              </Label>
-              <Input id="name" value="Acme Prism T-Shirt" />
-            </div>
-            <div className="grid gap-2">
-              <Label className="text-sm" htmlFor="brand">
-                Brand
-              </Label>
-              <Input id="brand" value="Acme Apparel" />
-            </div>
-            <div className="grid gap-2">
-              <Label className="text-sm" htmlFor="description">
-                Description
-              </Label>
-              <Textarea id="description" />
-            </div>
-            <div className="grid gap-2">
-              <Label className="text-sm" htmlFor="sustainability">
-                Sustainability Rating
-              </Label>
-              <Input id="sustainability" value="80" />
-            </div>
-            <div className="grid gap-2">
-              <Label className="text-sm" htmlFor="carbon">
-                Carbon Efficiency
-              </Label>
-              <Input disabled id="carbon" placeholder="Calculate" />
-              <Button>Calculate</Button>
-            </div>
-          </div>
-        </div></>)
+        </div>
+        <div className="grid gap-2">
+          <Label className="text-sm">Certifications</Label>
+          <div>Organic Cotton, Fair Trade</div>
+        </div>
+        <div className="grid gap-2">
+          <Label className="text-sm">Materials</Label>
+          <div>Recycled polyester, organic cotton</div>
+        </div>
+      </div>
+    </div>)</>)
   );
 }
 
