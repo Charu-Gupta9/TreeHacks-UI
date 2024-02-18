@@ -1,23 +1,34 @@
 "use client"
 import { Input } from "../components/ui/input"
 import { Button } from "../components/ui/button"
+import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "../../components/ui/card"
+import { Label } from "../components/ui/label"
+import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "../components/ui/select"
+import axios from 'axios';
 import Link from "next/link"
 import React, { useEffect, useState } from "react";
 
 function TrackTransport(){
         const [data, setData] = useState(null);
-        useEffect(() => {
-            fetch('https://treehacks-api.onrender.com/route_map?origin=Stanford%20University&destination=Caltrain%20Palo%20Alto&mode=TRANSIT')
-              .then(response => response.json())
-              .then(json => setData(json))
-              .catch(error => console.error(error));
-          }, []);
-        if (!data) {
-            return <div>Loading...</div>;
-          }
-          console.log(data.link);
+        const [clicked, isClicked] = useState(null);
+        const [origin, getOrigin] = useState("");
+        const [dest, getDest] = useState("");
+        const [mode, getMode] = useState("");
+        console.log(mode);
+          function getData (origin,dest,mode) {
+            axios.get(`https://treehacks-api.onrender.com/route_map?origin=${origin}&destination=${dest}&mode=${mode}`).then(res =>{
+              console.log(res);
+              setData(res.data);
+              isClicked(true);
+            });
+        console.log(data);
+            }
+        // if (!data) {
+        //     return <div>Loading...</div>;
+        //   }
         return(
-            <><header className="px-4 lg:px-6 h-14 flex items-center">
+            <>
+            <header className="px-4 lg:px-6 h-14 flex items-center">
             <Link className="flex items-center justify-center" href="#">
               <MountainIcon className="h-6 w-6" />
               <span className="sr-only">Acme Inc</span>
@@ -71,9 +82,46 @@ function TrackTransport(){
                                         </p>
                                     </div>
                                 </div>
-                                <div >
-                <iframe src={data.link} className="container grid items-center gap-12 px-10 md:px-6" />
-            </div>
+                                <Card className="w-full flex flex-col">
+      <CardHeader className="pb-0 md:pb-4 md:pr-4 md:border-r">
+        <CardTitle className="text-lg">Select your mode of transportation</CardTitle>
+        <CardDescription className="text-sm">Enter your origin, destination, and select a mode.</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4 md:pl-4">
+        <div className="flex space-x-4">
+          <div className="w-1/2 space-y-2">
+            <Label className="text-sm" htmlFor="origin">
+              Origin
+            </Label>
+            <Input className="w-full max-w-xs text-black" id="origin" placeholder="Enter your origin" value={origin} onChange={e => getOrigin(e.target.value)}/>
+          </div>
+          <div className="w-1/2 space-y-2">
+            <Label className="text-sm" htmlFor="destination">
+              Destination
+            </Label>
+            <Input
+              className="w-full max-w-xs text-black"
+              id="destination"
+              placeholder="Enter your destination" value={dest} onChange={e => getDest(e.target.value)}/>
+          </div>
+          </div>
+           <div className="w-1/2 space-y-2">
+            <Label className="text-sm" htmlFor="destination">
+              Modes (Please type from one of the 3 modes -Transit, Walking or Driving)
+            </Label>
+            <Input
+              className="w-full max-w-xs text-black"
+              id="destination"
+              placeholder="Enter your destination" value={mode} onChange={e => getMode(e.target.value)}/>
+          </div>
+   
+        <Button type="submit" onClick={() => getData(origin, dest, mode)} >Submit</Button>
+      </CardContent>
+    </Card>
+    { data ?
+                                <div className="pt-10 h-full h-96">
+                <iframe src={data.link} className="container grid items-center gap-12 px-10 md:px-6 h-full" />
+            </div> : null }
                             </section>
                             <section className="grid gap-12">
                                 <div className="container grid items-center gap-4 px-20 md:px-20">
