@@ -37,6 +37,11 @@ const MainPage = () => {
     (<div className="flex flex-col min-h-[100dvh]">
       <div className="flex flex-col items-center">
       <main className="flex-1 items-center">
+      <div className="w-full flex items-center justify-center py-6">
+      <div className="grid gap-4 px-4 text-center md:px-6">
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl">Welcome to CARBON-CUT</h1>
+      </div>
+    </div>
       <section className="w-full py-20 md:py-6">
         <div className="container flex flex-col gap-4 px-4 md:px-6 text-center">
             <div className=" flex flex-coltext-center">
@@ -117,24 +122,8 @@ const MainPage = () => {
                 A human's estimated carbon footprint is 16 metric tons of CO2 per year.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-sm space-y-2">
-              <form className="flex flex-col gap-2">
-                <label className="sr-only" htmlFor="email">
-                  Email
-                </label>
-                <Input
-                  className="peer h-10 border-gray-300 shadow-sm dark:placeholder-gray-400"
-                  id="email"
-                  placeholder="Enter your email"
-                  type="email" />
-                <Button type="submit">Sign Up</Button>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Sign up to get notified when we launch.
-                  <Link className="underline underline-offset-2" href="#">
-                    Terms & Conditions
-                  </Link>
-                </p>
-              </form>
+            <div className="mx-auto max-w-sm space-y-2">
+            <iframe width="500" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" src="https://calculator.carbonfootprint.com/calculator.aspx?b=FFFFFF"></iframe>
             </div>
           </div>
         </section>
@@ -196,11 +185,11 @@ const MainPage = () => {
               </p>
               <p
                 className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                “Especially if it showed me how much impact it would have” - Jacob, Canada
+                “Especially if it showed me how much impact it would have” - Jacob
               </p>
               <p
                 className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                “when you see carbon footprint used in marketing its always very condemning. It’s nice to see something focused on action” - Jacob, Canada
+                “when you see carbon footprint used in marketing its always very condemning. It’s nice to see something focused on action” -Anonymous
               </p>
             </div>
           </div>
