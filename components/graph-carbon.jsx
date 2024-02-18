@@ -7,8 +7,8 @@ import { ResponsiveLine } from "@nivo/line"
 
 export function GraphCarbon() {
   return (
-    (<div className="flex flex-col gap-4 w-full items-center">
-      <Card className="w-full max-w-3xl">
+    (<div className="container flex flex-col gap-4 w-full items-center">
+      <Card className="container flex flex-col w-full max-w-3xl">
         <CardHeader className="px-6 pt-6 pb-0">
           <CardTitle className="text-base">Weekly Carbon Emissions</CardTitle>
         </CardHeader>

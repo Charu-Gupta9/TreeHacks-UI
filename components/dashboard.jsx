@@ -6,7 +6,7 @@ import { CardHeader, CardContent, Card } from "../components/ui/card"
 
 export function Dashboard() {
   return (
-    (<Card className="w-full max-w-3xl">
+    (<Card className="container flex flex-col w-full">
       <CardHeader className="flex flex-col items-center gap-4">
         <h2 className="text-3xl font-bold tracking-tighter text-center">Your Carbon Emissions Dashboard</h2>
         <p
